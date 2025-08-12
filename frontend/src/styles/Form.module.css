@@ -1,0 +1,54 @@
+.form{
+    display:flex;
+    width : 80%;
+    gap : 10px;
+}
+
+input {
+    height : 50px;
+    width: 100%;
+    border-radius: 10px;
+    border : none;
+    color : #000000;
+    padding: 0 20px;
+    font-size: 16px;
+}
+
+input::-webkit-input-placeholder,
+input::-moz-placeholder, 
+input:-ms-input-placeholder  
+{  
+    color:#C9B3B3 !important;  
+}
+
+
+button {
+    border-radius: 10px;
+    font-family: inherit;
+    background-color: #FF5350;
+    cursor: pointer;
+    border :none;
+    width: 50px;
+  }
+
+button:hover {
+    background-color: #9a2b29;
+}
+
+.searchLogo{
+    width: 30px;
+    height : auto;
+}
+
+/* sur mobile*/
+@media (max-width: 700px) {
+    .form{
+        height: auto;
+        width: 100%;
+        align-self: center;
+    }
+
+    input{
+        height: 40px;
+    }
+}
