@@ -1,6 +1,6 @@
 // logique metier : interroge la pokeApi
 
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import axios from 'axios';
 
 interface PokemonAPIResponse {
@@ -81,7 +81,7 @@ export class PokemonsService {
             if(err.response?.status === 404){
                 throw new NotFoundException(`Le Pokemon n°${id} n'existe pas.`);
             }
-            throw new Error('Erreur lors de la récupération du Pokemon.');
+            throw new InternalServerErrorException('Erreur lors de la récupération du Pokémon.');
         });
     }
 }

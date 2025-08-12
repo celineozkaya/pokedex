@@ -12,9 +12,17 @@ export default function PokemonForm({} : PokemonFormProps) : JSX.Element{
     const [pokemon, setPokemon] = useState<any | null>(null);
     const [hasSearched, setHasSearched] = useState(false); // pas d'affichage tant qu'il n'y a pas eu de req
     
+    // retire tout sauf chiffres
+    function sanitizeId(value: string): string {
+        return value.replace(/[^0-9]/g, ""); 
+    }
+
     function search(formData : FormData){
+        const rawId = String(formData.get("id") || "");
+        const cleanId = sanitizeId(rawId);
+
         axios
-        .get(`http://localhost:3000/pokemons/${formData.get("id")}`)
+        .get(`http://localhost:3000/pokemons/${cleanId}`)
         .then(res => {
             console.log("Pokemon :", res.data);
             setPokemon(res.data);
@@ -31,7 +39,13 @@ export default function PokemonForm({} : PokemonFormProps) : JSX.Element{
     return (
         <>
             <form action={search} className={styles.form}>
-                <input name="id" className={styles.input} placeholder="Entrez un id pour visualiser un Pokemon"/>
+                <input 
+                    name="id" 
+                    className={styles.input} 
+                    placeholder="Entrez un id pour visualiser un Pokemon"
+                    pattern="[0-9]+" // validation HTML5
+                    title="Chiffres uniquement"
+                />
                 <button type="submit"><img src={searchLogo} className={styles.searchLogo}/></button>
             </form>
             {hasSearched && <PokemonDisplay data={pokemon} />}
