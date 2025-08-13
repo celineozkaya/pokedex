@@ -1,0 +1,94 @@
+.card{
+    display: flex;
+    background-color: #77B35B;
+    border-radius: 20px;
+    box-shadow: 0 0 1em #573b3ba9;
+    width: 60%;
+    padding : 2%;
+
+}
+
+.images{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding : 1%;
+    justify-content: center;
+}
+
+.mainImage{
+    height: 80%;
+    text-align: center;
+}
+
+.otherImages{
+    display: flex;
+    justify-content: space-evenly;
+    height: 30%;
+
+}
+
+.infos{
+    display: flex;
+    flex-direction: column;
+    gap : 10px;
+    width: 50%;
+}
+
+.head{
+    display: flex;
+    justify-content: space-between;
+}
+
+.id{
+    font-size: 25px;
+    align-self: center;
+}
+
+.name{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.title{
+    font-size: 22px;
+    font-weight: bold;
+
+}
+
+.types{
+    display: flex;
+    gap : 10px;
+}
+
+.type{
+    border-radius: 50px;
+    background-color: #BFC66B;
+    padding : 5px;
+    width: 20%;
+    text-align: center;
+}
+
+.infoGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* 2 colonnes */
+    gap: 5%;
+}  
+
+/* sur mobile*/
+@media (max-width: 1000px) {
+    .card{
+        flex-direction: column;
+        width: 100%;
+        padding: 20px;
+
+    }
+
+    .images{
+        width: 100%;
+    }
+    .infos{
+        width: 100%;
+    }
+}
+
