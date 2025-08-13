@@ -1,25 +1,9 @@
 import type { JSX } from "react";
 import styles from "../styles/PokemonDisplay.module.css"
 import InfoBox from "./InfoBox";
+import type { IPokemon } from "../interfaces/IPokemon";
 
-interface IPokemon {
-    id: number;
-    name: string;
-    height: number;
-    weight: number;
-    types: string[];
-    abilities: string[];
-    sprites: {
-        front: string;
-        back: string;
-        front_shiny: string;
-        back_shiny: string;
-    };
-    stats: { 
-        name: string;
-        base: number; 
-    }[];
-}
+
 
 function capitalize(str: string) {
     if (!str) return "";
@@ -30,7 +14,7 @@ interface PokemonDisplayProps {
     data : IPokemon | null;
 }
 
-{/* association d'une couleur a chaque stat */}
+//association d'une couleur a chaque stat
 const statColors: Record<string, string> = {
     hp: "#DF2140",
     attack: "#FF994D",

@@ -3,13 +3,14 @@ import styles from "../styles/Form.module.css";
 import searchLogo from "../assets/searchIcon.png"
 import axios from "axios";
 import PokemonDisplay from "./PokemonDisplay";
+import type { IPokemon } from "../interfaces/IPokemon";
 
 interface PokemonFormProps {
     
 }
 
 export default function PokemonForm({} : PokemonFormProps) : JSX.Element{
-    const [pokemon, setPokemon] = useState<any | null>(null);
+    const [pokemon, setPokemon] = useState<IPokemon | null>(null);
     const [hasSearched, setHasSearched] = useState(false); // pas d'affichage tant qu'il n'y a pas eu de req
     
     // retire tout sauf chiffres
@@ -27,7 +28,6 @@ export default function PokemonForm({} : PokemonFormProps) : JSX.Element{
             console.log("Pokemon :", res.data);
             setPokemon(res.data);
             setHasSearched(true);
-            setHasSearched(true);
         })
         .catch(err => {
             console.error("Erreur :", err);
@@ -43,12 +43,12 @@ export default function PokemonForm({} : PokemonFormProps) : JSX.Element{
                     name="id" 
                     className={styles.input} 
                     placeholder="Entrez un id pour visualiser un Pokemon"
-                    pattern="[0-9]+" // validation HTML5
+                    pattern="[0-9]+"
                     title="Chiffres uniquement"
                 />
                 <button type="submit"><img src={searchLogo} className={styles.searchLogo}/></button>
             </form>
-            {hasSearched && <PokemonDisplay data={pokemon} />}
+            {hasSearched && <PokemonDisplay data={pokemon}/>}
         </>
     );
 }
