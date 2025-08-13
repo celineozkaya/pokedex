@@ -6,10 +6,8 @@ import Home from './pages/Home';
 
 export default function App() : JSX.Element {
   return (
-	<div>
-		<Routes>
-			<Route path="/" element={<Home/>} />
-		</Routes>
-	</div>
+	<Routes>
+		<Route path="/" element={<Home/>} />
+	</Routes>
   );
 }
