@@ -21,11 +21,20 @@
     text-align: center;
 }
 
+.mainImage img{
+    width : 100%;
+    height: auto;
+}
+
 .otherImages{
     display: flex;
     justify-content: space-evenly;
-    height: 30%;
+    width: 100%;
+}
 
+.otherImage img{
+    width : 80%;
+    height: auto;
 }
 
 .infos{
@@ -72,7 +81,7 @@
 .infoGrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);  /* 2 colonnes */
-    gap: 5%;
+    gap: 10px;
 }  
 
 /* sur mobile*/
@@ -89,6 +98,10 @@
     }
     .infos{
         width: 100%;
+    }
+    .mainImage img{
+        width : 50%;
+        height: auto;
     }
 }
 

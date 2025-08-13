@@ -40,12 +40,12 @@ export default function PokemonDisplay({data} : PokemonDisplayProps) : JSX.Eleme
             {/* coté gauche : les images */}
             <div className={styles.images}>
                 <div className={styles.mainImage}>
-                    <img src={data.sprites.front} alt={`${data.name} front`} style={{height : "100%"}}/>
+                    <img src={data.sprites.front} alt={`${data.name} front`}/>
                 </div>
                 <div className={styles.otherImages}>
-                    <img src={data.sprites.back} alt={`${data.name} back`} style={{height : "100%"}}/>
-                    <img src={data.sprites.front_shiny} alt={`${data.name} front shiny`} style={{height : "100%"}}/>
-                    <img src={data.sprites.back_shiny} alt={`${data.name} back shiny`} style={{height : "100%"}}/>
+                    <img src={data.sprites.back} alt={`${data.name} back`}/>
+                    <img src={data.sprites.front_shiny} alt={`${data.name} front shiny`}/>
+                    <img src={data.sprites.back_shiny} alt={`${data.name} back shiny`}/>
                 </div>
             </div>
 
