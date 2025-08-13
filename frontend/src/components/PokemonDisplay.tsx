@@ -30,6 +30,26 @@ interface PokemonDisplayProps {
     data : IPokemon | null;
 }
 
+{/* association d'une couleur a chaque stat */}
+const statColors: Record<string, string> = {
+    hp: "#DF2140",
+    attack: "#FF994D",
+    defense: "#EECD3D",
+    "special-attack": "#85DDFF",
+    "special-defense": "#96DA83",
+    speed: "#FB94A8"
+};
+
+// abreviations des stats
+const statAbbr: Record<string, string> = {
+    hp: "HP",
+    attack: "ATK",
+    defense: "DEF",
+    "special-attack": "SpA",
+    "special-defense": "SpD",
+    speed: "SPD"
+};
+
 export default function PokemonDisplay({data} : PokemonDisplayProps) : JSX.Element{
     if (!data) {
         return <div>Aucun Pokémon n'a été trouvé.</div>;
@@ -73,33 +93,13 @@ export default function PokemonDisplay({data} : PokemonDisplayProps) : JSX.Eleme
                 {/* stats */}
                 <div className={styles.title}>Stats</div>
                 <div className={styles.infoGrid}>
-                    {/* association d'une couleur a chaque stat */}
                     {data.stats.map((stat, index) => {
-                        const statColors: Record<string, string> = {
-                            hp: "#DF2140",
-                            attack: "#FF994D",
-                            defense: "#EECD3D",
-                            "special-attack": "#85DDFF",
-                            "special-defense": "#96DA83",
-                            speed: "#FB94A8"
-                        };
-
-                        // abreviations des stats
-                        const statAbbr: Record<string, string> = {
-                            hp: "HP",
-                            attack: "ATK",
-                            defense: "DEF",
-                            "special-attack": "SpA",
-                            "special-defense": "SpD",
-                            speed: "SPD"
-                        };
-
                         const color = statColors[stat.name];
                         const title = statAbbr[stat.name] || stat.name; // nom complet si non trouvé
                         
                         return (
                             <InfoBox key={index} title={title} data={stat.base} color={color}/>
-                            );
+                        );
                     })}
                 </div>
 
