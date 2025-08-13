@@ -81,7 +81,7 @@ export class PokemonsService {
             if(err.response?.status === 404){
                 throw new NotFoundException(`Le Pokemon n°${id} n'existe pas.`);
             }
-            throw new InternalServerErrorException('Erreur lors de la récupération du Pokémon.');
+            throw new InternalServerErrorException('Erreur lors de la récupération du Pokemon.');
         });
     }
 }

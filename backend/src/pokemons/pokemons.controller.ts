@@ -13,7 +13,7 @@ export class PokemonsController {
     @Get(':id')
     async findOne(@Param('id', ParseIntPipe) id: number) {
         if (id < 1) {
-            throw new BadRequestException('ID Pokémon invalide');
+            throw new BadRequestException('ID Pokemon invalide');
         }
         return await this.pokemonsService.getPokemonById(id);
     }
